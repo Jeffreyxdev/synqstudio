@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@theme {
+    --font-serif: "Inria Serif", serif;
+    --font-sans: "Inclusive Sans", sans-serif;
+    --font-vt323: "VT323", monospace;
+}
