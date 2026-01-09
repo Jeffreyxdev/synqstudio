@@ -1,12 +1,12 @@
 import Navbar from './Components/Navbar'
+import Home from './pages/Home'
 
 const App = () => {
   return (
     <div>
       <Navbar />
       <div className="p-6">
-        {/* Main content placeholder */}
-        App Content
+       <Home/>
       </div>
     </div>
   )
