@@ -28,7 +28,7 @@ const Hero = () => {
           <div className="flex flex-col space-y-8">
             {/* Headline */}
             <div className="relative">
-              <h1 className="font-vt323 text-6xl md:text-7xl lg:text-7xl leading-[0.9] tracking-tight uppercase relative z-10">
+              <h1 className="font-vt323 text-6xl md:text-7xl lg:text-7xl leading-[0.9] tracking-tight bg-gradient-to-r from-black via-[#365768] to-[#BE8C58] bg-clip-text text-transparent uppercase relative z-10">
                 Sync the product. <br />
                 Own the experience.
               </h1>
