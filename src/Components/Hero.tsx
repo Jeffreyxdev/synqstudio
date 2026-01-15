@@ -8,7 +8,7 @@ const Hero = () => {
 
 
   return (
-    <div className="relative w-full text-black bg-white" ref={containerRef}>
+    <div className="relative w-full text-black bg-white p-6" ref={containerRef}>
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 bg-white">
         <div
@@ -24,7 +24,7 @@ const Hero = () => {
       </div>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 w-full">
         {/* Left Content - Sticky */}
-        <div className="lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center p-0 lg:p-0 xl:p-0">
+        <div className="lg:h-screen lg:sticky lg:top-0 flex flex-col pt-12 lg:pt-24">
           <div className="flex flex-col space-y-8">
             {/* Headline */}
             <div className="relative">
@@ -36,13 +36,13 @@ const Hero = () => {
 
             {/* Subtext */}
             <p className="text-xl md:text-2xl font-serif max-w-xl text-gray-800 leading-relaxed">
-              Synq Studio builds websites, apps, and systems that work as one. A studio shaping modern digital systems.
+              Synq Studio a digital studio shaping products, platforms, and SaaS that work together as one system.
             </p>
 
             {/* Tags Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full max-w-lg">
-              {['UI/UX Design', 'Website dev', 'Backend infra', 'Booking systems', 'Mobile apps', 'Ads'].map((tag) => (
-                <div key={tag} className="border border-black/20 bg-black backdrop-blur-sm px-4 py-2 text-sm text-white font-medium text-center uppercase tracking-wide hover:bg-white hover:text-black transition-colors cursor-default">
+              {['UI/UX Design', 'Website dev', 'Backend infra', 'SAAS ', 'Mobile apps', 'Ads', 'APIs'].map((tag) => (
+                <div key={tag} className="border border-black/20 bg-white backdrop-blur-sm px-4 py-2 text-sm  font-medium text-center uppercase tracking-wide hover:bg-black hover:text-white transition-colors cursor-default">
                   {tag}
                 </div>
               ))}
@@ -51,10 +51,10 @@ const Hero = () => {
         </div>
 
         {/* Right Content - Scrollable Projects */}
-        <div className="w-full px-4 lg:px-0 lg:pr-12 py-12 lg:py-0">
+        <div className="w-full px-0 lg:pr-12 py-0 lg:py-0">
           <ProjectShowcase />
           {/* Spacer at bottom to ensure last card scrolls out nicely if needed */}
-          <div className="h-full" />
+          <div className="h-32 lg:h-0" />
         </div>
 
       </div>
