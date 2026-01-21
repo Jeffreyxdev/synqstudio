@@ -8,13 +8,13 @@ const App = () => {
   return (
     <div className="min-h-screen bg-white text-black font-sans">
       <Navbar />
-      <div className="p-0">
+     
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/book" element={<Book />} />
         </Routes>
-      </div>
+      
     </div>
   );
 };
