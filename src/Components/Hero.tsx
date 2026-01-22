@@ -1,6 +1,6 @@
 import ProjectShowcase from './ProjectShowcase';
 import { useRef, useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -88,13 +88,14 @@ const Hero = () => {
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3"> 
                 <button className="group relative px-6 py-3 bg-black text-white font-medium uppercase tracking-wide text-xs overflow-hidden transition-all hover:shadow-2xl">
                   <span className="relative z-10">Book an Intro Call</span>
+               
                   <div className="absolute inset-0 bg-gradient-to-r from-[#365768] to-[#BE8C58] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-                  <span className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                     <Link to={'/book'}><span className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Book an Intro Call
-                  </span>
+                  </span></Link>
                 </button>
                 
                 <button className="px-6 py-3 border-2 border-black text-black font-medium uppercase tracking-wide text-xs hover:bg-black hover:text-white transition-all">
