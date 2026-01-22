@@ -9,7 +9,7 @@
           "value": "text/html"
         }
       ],
-      "destination": "/index.html"
+      "destination": "/"
     }
   ]
 }
