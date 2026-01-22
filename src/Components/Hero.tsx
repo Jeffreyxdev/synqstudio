@@ -43,10 +43,10 @@ const Hero = () => {
         style={{ opacity: scrollProgress }}
       />
 
-      <div className="relative z-10 max-w-full mx-auto lg:px-[-6px] sm:px-10">
+      <div className="relative z-10 max-w-full mx-auto lg:px-[-6px] sm:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
           {/* Left Content - Sticky */}
-      <div className="lg:col-span-5 lg:h-screen lg:sticky lg:top-20 flex flex-col justify-center px-0 sm:px-4 py-12 lg:py-16">
+      <div className="lg:col-span-5 lg:h-screen lg:sticky lg:top-20 sm:top-10 flex flex-col justify-center px-0 sm:px-10 py-12 lg:py-16">
             <div className="flex flex-col space-y-6">
               {/* Latin Phrase */}
               <div className="inline-flex flex-col gap-0.5 self-start">
