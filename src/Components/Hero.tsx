@@ -22,7 +22,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen text-black bg-white pt-20" ref={containerRef}>
+    <div className="relative w-full min-h-screen text-black bg-white pt-10" ref={containerRef}>
+
       {/* Grain Texture Overlay */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
         <svg className="w-full h-full opacity-30">
@@ -43,11 +44,12 @@ const Hero = () => {
         style={{ opacity: scrollProgress }}
       />
 
-      <div className="relative z-10 max-w-full mx-auto lg:px-[-6px] sm:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-          {/* Left Content - Sticky */}
-      <div className="lg:col-span-5 lg:h-screen lg:sticky lg:top-20 sm:top-10 flex flex-col justify-center px-0 sm:px-10 py-12 lg:py-16">
-            <div className="flex flex-col space-y-6">
+<div className="relative z-10 w-full px-6 sm:px-6 lg:px-6">
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+     <div className="lg:col-span-5 lg:h-[calc(100vh-6rem)] lg:sticky lg:top-20 flex flex-col justify-start pt-6 pb-8">
+
+
+            <div className="flex flex-col space-y-6 ">
               {/* Latin Phrase */}
               <div className="inline-flex flex-col gap-0.5 self-start">
                 <span className="font-vt323 text-xl uppercase tracking-wider bg-gradient-to-r from-[#365768] to-[#BE8C58] bg-clip-text text-transparent">
@@ -62,7 +64,7 @@ const Hero = () => {
               <div className="inline-flex items-center gap-2 self-start">
                 <div className="w-1.5 h-1.5 bg-gradient-to-r from-[#365768] to-[#BE8C58] rounded-full animate-pulse" />
                 <span className="text-[10px] uppercase tracking-widest font-medium text-gray-600">
-                  6 Founders Booked a Call This Week
+                  9 Founders Booked a Call This Week
                 </span>
               </div>
 
@@ -126,16 +128,16 @@ const Hero = () => {
                 <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-3">Trusted By</p>
                 <div className="flex flex-wrap items-center gap-4 opacity-40">
                   <span className="text-xs font-semibold">GREATFRONTEND</span>
-                  <span className="text-xs font-semibold">HUAWEI</span>
+                  <span className="text-xs font-semibold">DEEPSEEK</span>
                   <span className="text-xs font-semibold">CABRAL</span>
-                  <span className="text-xs font-semibold">MUZES</span>
+                  <span className="text-xs font-semibold">BUILDERS.IO</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Content - Scrollable Projects */}
-          <div className="lg:col-span-7 py-12 lg:py-16 relative">
+           <div className="lg:col-span-7 mt-6 sm:mt-8 lg:mt-25">
             <ProjectShowcase />
             
             {/* Bottom fade overlay */}

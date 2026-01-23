@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import dashboardMockup from '../assets/dashboard_mockup.png';
 import websiteMockup from '../assets/website_mockup.png';
 import mobileAppMockup from '../assets/saas.png';
-
+import deepseek from   '../assets/deepseek.png'
 // --- Main Component ---
 
 interface Project {
@@ -20,7 +20,7 @@ const projects: Project[] = [
     },
     {
         id: 2,
-        src: websiteMockup,
+        src: deepseek,
         color: "from-indigo-500/20 to-cyan-500/20"
     },
     {
@@ -28,6 +28,12 @@ const projects: Project[] = [
         src: mobileAppMockup,
         color: "from-gray-100 to-gray-200"
     },
+    {
+        id: 4,
+        src: websiteMockup,
+        color: "from-green-500/20 to-teal-500/20"
+    }
+
 ];
 
 const Card = ({ i, project, progress, range, targetScale }: { i: number, project: Project, progress: MotionValue<number>, range: number[], targetScale: number }) => {
@@ -37,7 +43,10 @@ const Card = ({ i, project, progress, range, targetScale }: { i: number, project
     return (
         <div
             ref={container}
-            className="h-screen flex items-center justify-center sticky top-0 px-2 md:px-0"
+            className="min-h-[70vh] md:h-screen
+  flex items-start md:items-center
+  sticky top-4
+  px-2 md:px-0"
         >
             <motion.div
                 style={{ scale, top: `calc(-2vh + ${i * 20}px)` }}

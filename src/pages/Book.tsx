@@ -153,33 +153,31 @@ const Book = () => {
             <style>{`
                 .synq-loader-wrap { position: relative; }
                 .synq-loader {
-                    position: absolute;
-                    width: 16px;
-                    height: 16px;
-                    top: 8px;
-                    left: 8px;
-                    border-radius: 3px;
-                    background: linear-gradient(90deg, #111827, #D4AF37);
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-                    z-index: 30;
-                    animation: synq-slide 2.2s linear infinite;
-                }
-                @keyframes synq-slide {
-                    0%   { transform: translate(0, 0); }
-                    25%  { transform: translate(calc(100% - 24px), 0); }
-                    50%  { transform: translate(calc(100% - 24px), calc(100% - 24px)); }
-                    75%  { transform: translate(0, calc(100% - 24px)); }
-                    100% { transform: translate(0, 0); }
-                }
-                .synq-loader::after {
-                    content: '';
-                    position: absolute;
-                    inset: -6px;
-                    border-radius: 5px;
-                    background: rgba(213, 175, 55, 0.08);
-                    filter: blur(6px);
-                    z-index: -1;
-                }
+            width: clamp(28px, 4vw, 42px);
+            height: clamp(28px, 4vw, 42px);
+            border-radius: 6px;
+            background: linear-gradient(135deg, #111827, #D4AF37);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            animation: synq-pulse 1.4s ease-in-out infinite;
+            }
+
+            @keyframes synq-pulse {
+            0%   { transform: scale(0.9); opacity: 0.6; }
+            50%  { transform: scale(1);   opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+            }
+
+            .synq-loader::after {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border-radius: 10px;
+            background: rgba(212, 175, 55, 0.15);
+            filter: blur(10px);
+            z-index: -1;
+            }
+
+                
             `}</style>
 
             <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 bg-white fixed">
@@ -215,21 +213,33 @@ const Book = () => {
                     <div className="w-full flex justify-center lg:justify-end">
                         <section
                             ref={calendlyRef}
-                            className="calendly-inline-widget synq-loader-wrap w-full max-w-[800px] h-[700px] border border-black/5 bg-white/50 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden relative"
+                            className=" calendly-inline-widget
+                                    synq-loader-wrap
+                                    w-full
+                                    max-w-[800px]
+                                    h-[620px]
+                                    md:h-[680px]
+                                    lg:h-[720px]
+                                    border border-black/5
+                                    bg-white/50
+                                    backdrop-blur-sm
+                                    rounded-2xl
+                                    shadow-2xl
+                                    overflow-hidden
+                                    relative"
                             data-url="https://calendly.com/synqstudio/30min?hide_landing_page_details=1&hide_gdpr_banner=1"
-                            style={{ minWidth: '320px', height: '700px' }}
+                            style={{ minWidth: '320px' }}
                             aria-label="Calendly scheduling widget"
                         >
-                            {loading && (
-                                <div
-                                    aria-hidden
-                                    className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none"
-                                >
-                                    <div className="relative w-full h-full max-w-[360px] max-h-[360px] flex items-center justify-center">
-                                        <div className="synq-loader" />
-                                    </div>
-                                </div>
+                           {loading && (
+                        <div
+                                aria-hidden
+                                className="absolute inset-0 z-20 flex items-center justify-center bg-white/40 backdrop-blur-[2px]"
+                            >
+                                <div className="synq-loader" />
+                            </div>
                             )}
+
                         </section>
                     </div>
 
