@@ -63,7 +63,7 @@ const Mainb = () => {
 
       <div className="max-w-7xl mx-auto relative z-10" ref={containerRef}>
         {/* Header Section */}
-        <div className="mb-16 mt-20">
+        <div className="mb-16 lg:mt-20 sm:mt-0">
           <div className="inline-flex items-center gap-2 mb-6">
             <div className="w-1.5 h-1.5 bg-gradient-to-r from-[#365768] to-[#BE8C58] rounded-full animate-pulse" />
             <span className="text-[10px] uppercase tracking-widest font-medium text-gray-600">
@@ -108,7 +108,7 @@ const Mainb = () => {
               <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               
               <div className="relative z-10">
-                <div className="font-vt323 text-5xl lg:text-6xl mb-3 bg-gradient-to-r from-[#365768] to-[#BE8C58] bg-clip-text text-transparent group-hover:text-white transition-all duration-500">
+                <div className="font-sans text-5xl lg:text-6xl mb-3 bg-gradient-to-r from-[#000000] to-[#BE8C58] bg-clip-text text-transparent group-hover:text-white transition-all duration-500">
                   {stat.number}
                 </div>
                 <div className="text-sm uppercase tracking-wider font-bold mb-1 group-hover:text-white transition-colors duration-500">

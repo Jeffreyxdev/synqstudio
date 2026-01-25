@@ -45,7 +45,7 @@ const Hero = () => {
 
 <div className="relative z-10 w-full px-6 sm:px-6 lg:px-6">
   <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-     <div className="lg:col-span-5 lg:h-[calc(100vh-6rem)] lg:sticky lg:top-20 flex flex-col justify-start pt-6 pb-8">
+     <div className="lg:col-span-5 lg:h-[calc(100vh-6rem)] lg:sticky lg:top-20 flex flex-col justify-start pt-6 sm:pt-4  pb-8">
 
 
             <div className="flex flex-col space-y-6 ">
