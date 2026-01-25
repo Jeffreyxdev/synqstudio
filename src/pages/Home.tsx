@@ -1,3 +1,4 @@
+import Mainb from "@/Components/Mainb"
 import Hero from "../Components/Hero"
 
 
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       
       <Hero/>
+      <Mainb/>
     </div>
   )
 }

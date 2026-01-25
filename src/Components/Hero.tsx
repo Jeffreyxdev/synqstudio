@@ -3,7 +3,6 @@ import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
-
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -34,10 +33,10 @@ const Hero = () => {
           <rect width="100%" height="100%" filter="url(#noise)" />
         </svg>
       </div>
-
+  
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/30 to-white pointer-events-none z-0" />
-
+  
       {/* Faint Shadow Transition */}
       <div 
         className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent transition-opacity duration-500"
@@ -71,12 +70,12 @@ const Hero = () => {
               {/* Headline */}
               <div className="relative">
                 <h1 className="font-vt323 text-[3rem] md:text-[4rem] lg:text-[4.5rem] leading-[0.9] tracking-tight uppercase relative">
-                  <span className="bg-gradient-to-r from-black via-[#365768] to-[#BE8C58] bg-clip-text text-transparent">
-                    Sync the product.
+                  <span className="bg-gradient-to-r from-black  to-[#BE8C58] bg-clip-text text-transparent">
+                    Sync ideas into
                   </span>
                   <br />
-                  <span className="bg-gradient-to-r from-[#BE8C58] via-[#365768] to-black bg-clip-text text-transparent">
-                    Own the experience.
+                  <span className="bg-gradient-to-r from-[#BE8C58]  to-black bg-clip-text text-transparent">
+                    Products
                   </span>
                 </h1>
                 
@@ -94,7 +93,7 @@ const Hero = () => {
                 <button className="group relative px-6 py-3 bg-black text-white font-medium uppercase tracking-wide text-xs overflow-hidden transition-all hover:shadow-2xl">
                   <span className="relative z-10">Book an Intro Call</span>
                
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#365768] to-[#BE8C58] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#242424] to-[#BE8C58] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                      <Link to={'/book'}><span className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Book an Intro Call
                   </span></Link>
