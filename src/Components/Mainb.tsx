@@ -1,13 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect ,useRef } from 'react';
 import BlurText from './Blurtext';
 import { Link } from 'react-router-dom';
 
 const Mainb = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    setIsVisible(true);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target); // Trigger once and stop
+        }
+      },
+      {
+        threshold: 0.15, // Trigger when 15% of the section is visible
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
   const stats = [
@@ -32,10 +48,6 @@ const Mainb = () => {
     }
   ];
 
-  const handleAnimationComplete = () => {
-    console.log('Animation completed!');
-  };
-
   return (
     <div className="relative w-full bg-white text-black py-20 px-6 overflow-hidden">
       {/* Subtle grain texture */}
@@ -49,7 +61,7 @@ const Mainb = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10" ref={containerRef}>
         {/* Header Section */}
         <div className="mb-16 mt-20">
           <div className="inline-flex items-center gap-2 mb-6">
@@ -59,17 +71,24 @@ const Mainb = () => {
             </span>
           </div>
 
-         <BlurText
-  text="Ship faster. Scale smarter. Win bigger."
-  delay={150}
-  animateBy="words"
-  direction="top"
-  onAnimationComplete={handleAnimationComplete}
-  /* Remove text-transparent from here */
-  className="font-sans text-5xl md:text-7xl lg:text-8xl leading-none mb-6 [*_span]:bg-gradient-to-r [*_span]:from-black [*_span]:via-[#365768] [*_span]:to-[#BE8C58] [*_span]:bg-clip-text [*_span]:text-transparent"
-/>
+          {/* BlurText now only mounts when section is visible */}
+          {isVisible && (
+            <BlurText
+              text="Ship faster. Scale smarter. Win bigger."
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="font-sans text-5xl md:text-7xl lg:text-8xl leading-none mb-6 [*_span]:bg-gradient-to-r [*_span]:from-black [*_span]:via-[#365768] [*_span]:to-[#BE8C58] [*_span]:bg-clip-text [*_span]:text-transparent"
+            />
+          )}
 
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl font-serif leading-relaxed">
+          <p 
+            className="text-lg md:text-xl text-gray-600 max-w-2xl font-serif leading-relaxed transition-all duration-1000 delay-500"
+            style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(20px)'
+            }}
+          >
             We turn founder visions into market-ready products that users actually want to pay for.
           </p>
         </div>
@@ -85,7 +104,6 @@ const Mainb = () => {
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                 transition: `all 0.6s ease-out ${index * 150}ms`
               }}
-              onMouseEnter={() => setActiveIndex(index)}
             >
               <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               
@@ -101,8 +119,6 @@ const Mainb = () => {
                 </div>
               </div>
 
-
-              {/* Decorative corner */}
               <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-[#365768] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
@@ -145,14 +161,15 @@ const Mainb = () => {
                 Join 200+ founders who chose speed and quality over endless planning.
               </p>
             </div>
-                <Link to={'/book'}>
-            <button className="group relative px-8 py-4 bg-black text-white font-medium uppercase tracking-wide text-xs overflow-hidden transition-all hover:shadow-2xl">
-              <span className="relative z-10">Start Your Project</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#BE8C58] to-[#050505] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-              <span className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Start Your Project
-              </span>
-            </button></Link>
+            <Link to={'/book'}>
+              <button className="group relative px-8 py-4 bg-black text-white font-medium uppercase tracking-wide text-xs overflow-hidden transition-all hover:shadow-2xl">
+                <span className="relative z-10">Start Your Project</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#BE8C58] to-[#050505] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                <span className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Start Your Project
+                </span>
+              </button>
+            </Link>
           </div>
         </div>
 
